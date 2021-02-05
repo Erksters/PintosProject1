@@ -1,0 +1,31 @@
+To clone a repo
+
+$ git clone <url>
+
+To create or checkout a new branch
+
+$git checkout -b <branch name>
+
+To review all new changes since you started editing the repo
+
+$git status
+
+To add your work to your branch
+
+$git add .
+
+To commit your work to your current branch
+
+$git commit -m "I added this new feature"
+
+To push your work to the online repo
+
+$git push    #the command line prompt will tell you what you write since you created this branch locally "git set upstream ..."
+
+To pull others work onto your machine
+
+$git pull
+
+To update/catch up your current unfinished branch with master
+
+$git rebase origin/master 
