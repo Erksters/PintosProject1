@@ -37,6 +37,9 @@ static struct thread *initial_thread;
 /* Lock used by allocate_tid(). */
 static struct lock tid_lock;
 
+/* The list of sleeping threads */
+static struct thread* sleeping_threads;
+
 /* Stack frame for kernel_thread(). */
 struct kernel_thread_frame 
   {
@@ -467,6 +470,9 @@ init_thread (struct thread *t, const char *name, int priority)
   old_level = intr_disable ();
   list_push_back (&all_list, &t->allelem);
   intr_set_level (old_level);
+  
+  /* Initialize the semaphore */
+  sema_init(&t->timer_sema, 0);
 }
 
 /* Allocates a SIZE-byte frame at the top of thread T's stack and
